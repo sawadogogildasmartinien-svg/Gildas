@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" demote-non-dropping-particle="never" default-locale="fr-FR">
+  <info>
+    <title>Harvard IDR – Université Nazi Boni (Burkina Faso)</title>
+    <id>http://www.zotero.org/styles/harvard-idr-unb</id>
+    <link href="http://www.zotero.org/styles/harvard-idr-unb" rel="self"/>
+    <author>
+      <name>Adapté du style Harvard IDR (David Kaplan) pour l'IDR/UNB</name>
+    </author>
+    <category citation-format="author-date"/>
+    <category field="biology"/>
+    <updated>2026-06-06T00:00:00+00:00</updated>
+    <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
+  </info>
+
+  <!-- ============================================================
+       LOCALE FRANÇAISE
+       ============================================================ -->
+  <locale xml:lang="fr">
+    <terms>
+      <term name="and">et</term>
+      <term name="et-al" font-style="italic">et al.</term>
+      <term name="accessed">consulté le</term>
+      <term name="in">Dans</term>
+      <term name="page" form="short">p.</term>
+      <term name="pages" form="short">pp.</term>
+      <term name="editor" form="short">
+        <single>Éd.</single>
+        <multiple>Éd.</multiple>
+      </term>
+    </terms>
+  </locale>
+
+  <!-- ============================================================
+       MACROS
+       ============================================================ -->
+
+  <!-- Auteurs : NOM Initiale(s). séparés par des virgules, "et" avant le dernier -->
+  <macro name="author">
+    <names variable="author">
+      <name name-as-sort-order="all"
+            sort-separator=" "
+            initialize-with="."
+            delimiter=", "
+            delimiter-precedes-last="never"
+            and="text"/>
+      <label form="short" prefix=" (" suffix=")" text-case="capitalize-first"/>
+      <substitute>
+        <names variable="editor"/>
+        <names variable="translator"/>
+        <text macro="title"/>
+      </substitute>
+    </names>
+  </macro>
+
+  <!-- Auteurs courts pour citation dans le texte -->
+  <macro name="author-short">
+    <names variable="author">
+      <name form="short"
+            and="text"
+            delimiter=", "
+            initialize-with="."/>
+      <et-al font-style="italic"/>
+      <substitute>
+        <names variable="editor"/>
+        <names variable="translator"/>
+        <choose>
+          <if type="bill book graphic legal_case legislation motion_picture report song" match="any">
+            <text variable="title" form="short" font-style="italic"/>
+          </if>
+          <else>
+            <text variable="title" form="short" quotes="true"/>
+          </else>
+        </choose>
+      </substitute>
+    </names>
+  </macro>
+
+  <!-- Année -->
+  <macro name="issued">
+    <choose>
+      <if variable="issued">
+        <date variable="issued">
+          <date-part name="year"/>
+        </date>
+      </if>
+      <else>
+        <text term="no date" form="short"/>
+      </else>
+    </choose>
+  </macro>
+
+  <!-- Titre selon le type de document -->
+  <macro name="title">
+    <choose>
+      <!-- Article : titre entre guillemets français -->
+      <if type="article-journal article-magazine article-newspaper" match="any">
+        <text variable="title" prefix="« " suffix=" »"/>
+      </if>
+      <!-- Thèse/mémoire : titre souligné (simulé en italique) -->
+      <else-if type="thesis" match="any">
+        <text variable="title" font-style="italic"/>
+      </else-if>
+      <!-- Livre, rapport : titre en italique -->
+      <else-if type="bill book graphic legal_case legislation motion_picture report song speech" match="any">
+        <text variable="title" font-style="italic"/>
+        <text macro="edition" prefix=", "/>
+      </else-if>
+      <!-- Chapitre : titre simple -->
+      <else-if type="chapter paper-conference" match="any">
+        <text variable="title"/>
+      </else-if>
+      <!-- Page web -->
+      <else-if type="webpage post-weblog" match="any">
+        <text variable="title" prefix="« " suffix=" »"/>
+      </else-if>
+      <else>
+        <text variable="title"/>
+      </else>
+    </choose>
+  </macro>
+
+  <!-- Édition -->
+  <macro name="edition">
+    <group delimiter=" ">
+      <choose>
+        <if is-numeric="edition">
+          <number variable="edition" form="ordinal"/>
+        </if>
+        <else>
+          <text variable="edition" suffix="."/>
+        </else>
+      </choose>
+      <text value="éd."/>
+    </group>
+  </macro>
+
+  <!-- Éditeurs (pour chapitres) -->
+  <macro name="editor">
+    <names variable="editor translator" delimiter=", ">
+      <name name-as-sort-order="all"
+            sort-separator=" "
+            initialize-with="."
+            delimiter=", "
+            delimiter-precedes-last="never"
+            and="text"/>
+      <label form="short" text-case="capitalize-first" prefix=" (" suffix=")"/>
+    </names>
+  </macro>
+
+  <!-- Conteneur (revue, livre parent, etc.) -->
+  <macro name="container">
+    <choose>
+      <!-- Chapitre dans un livre -->
+      <if type="chapter paper-conference" match="any">
+        <group delimiter=". ">
+          <group delimiter=" ">
+            <text term="in" text-case="capitalize-first" suffix=" :"/>
+            <text macro="editor"/>
+          </group>
+          <text variable="container-title" font-style="italic"/>
+        </group>
+      </if>
+      <!-- Article de périodique : nom de revue en italique -->
+      <else-if type="article-journal article-magazine article-newspaper" match="any">
+        <text variable="container-title" font-style="italic"/>
+      </else-if>
+      <else>
+        <text variable="container-title" font-style="italic"/>
+      </else>
+    </choose>
+  </macro>
+
+  <!-- Éditeur et lieu de publication -->
+  <macro name="publisher">
+    <group delimiter=", ">
+      <text variable="publisher-place"/>
+      <text variable="publisher"/>
+    </group>
+  </macro>
+
+  <!-- Localisateurs selon type de document -->
+  <macro name="locators">
+    <choose>
+      <!-- Article : volume(numéro): pages. DOI -->
+      <if type="article-journal article-magazine article-newspaper" match="any">
+        <group delimiter=" ">
+          <group>
+            <text variable="volume"/>
+            <text variable="issue" prefix="(" suffix=")"/>
+          </group>
+          <text variable="page" prefix=": "/>
+        </group>
+      </if>
+      <!-- Livre -->
+      <else-if type="bill book graphic legal_case legislation motion_picture report song" match="any">
+        <group delimiter=", " prefix=". ">
+          <text macro="publisher"/>
+          <group>
+            <text variable="number-of-pages"/>
+            <text value=" p."/>
+          </group>
+        </group>
+      </else-if>
+      <!-- Thèse/mémoire -->
+      <else-if type="thesis" match="any">
+        <group delimiter=". " prefix=". ">
+          <text variable="genre"/>
+          <text variable="publisher"/>
+          <text variable="publisher-place"/>
+          <group>
+            <text variable="number-of-pages"/>
+            <text value="p."/>
+          </group>
+        </group>
+      </else-if>
+      <!-- Chapitre -->
+      <else-if type="chapter paper-conference" match="any">
+        <group delimiter=", " prefix=". ">
+          <text macro="publisher"/>
+          <group>
+            <label variable="page" form="short" suffix=" "/>
+            <text variable="page"/>
+          </group>
+        </group>
+      </else-if>
+    </choose>
+  </macro>
+
+  <!-- DOI ou URL -->
+  <macro name="access">
+    <choose>
+      <if variable="DOI">
+        <text variable="DOI" prefix="https://doi.org/"/>
+      </if>
+      <else-if type="webpage post-weblog" match="any">
+        <group delimiter=" ">
+          <text value="Consulté le"/>
+          <date variable="accessed" delimiter=" ">
+            <date-part name="day"/>
+            <date-part name="month" form="long"/>
+            <date-part name="year"/>
+          </date>
+          <text variable="URL" prefix=": "/>
+        </group>
+      </else-if>
+    </choose>
+  </macro>
+
+  <!-- ============================================================
+       CITATIONS DANS LE TEXTE
+       Format IDR : (Auteur, année) ; 3+ auteurs → (Auteur et al., année)
+       Plusieurs références séparées par " ; " classées par ordre chronologique
+       ============================================================ -->
+  <citation et-al-min="3" et-al-use-first="1"
+            disambiguate-add-givenname="true"
+            disambiguate-add-year-suffix="true"
+            collapse="year"
+            cite-group-delimiter=", ">
+    <sort>
+      <key macro="issued" sort="ascending"/>
+      <key macro="author"/>
+    </sort>
+    <layout prefix="(" suffix=")" delimiter=" ; ">
+      <group delimiter=", ">
+        <text macro="author-short"/>
+        <text macro="issued"/>
+        <group delimiter=" ">
+          <label variable="locator" form="short"/>
+          <text variable="locator"/>
+        </group>
+      </group>
+    </layout>
+  </citation>
+
+  <!-- ============================================================
+       BIBLIOGRAPHIE
+       Classement alphabétique, puis chronologique
+       Format : NOM Initiale(s). (année). Titre. Revue volume(numéro): pages.
+       ============================================================ -->
+  <bibliography hanging-indent="true" entry-spacing="0" line-spacing="1">
+    <sort>
+      <key macro="author"/>
+      <key macro="issued" sort="ascending"/>
+    </sort>
+    <layout suffix=".">
+      <!-- Auteurs + (année) -->
+      <group suffix=". ">
+        <text macro="author"/>
+        <text macro="issued" prefix=" (" suffix=")"/>
+      </group>
+      <!-- Titre -->
+      <text macro="title" suffix=". "/>
+      <!-- Conteneur (revue ou livre parent) -->
+      <text macro="container"/>
+      <!-- Localisateurs (vol, pages, éditeur, lieu, nb pages) -->
+      <text macro="locators"/>
+      <!-- DOI ou URL -->
+      <text macro="access" prefix=". "/>
+    </layout>
+  </bibliography>
+
+</style>
