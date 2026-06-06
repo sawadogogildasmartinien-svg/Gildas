@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <style class="in-text" version="1.0" demote-non-dropping-particle="never" default-locale="fr-FR" xmlns="http://purl.org/net/xbiblio/csl">
   <info>
-    <title>Style IDR Nazi BONI - Memoire</title>
-    <id>http://www.zotero.org/styles/style-idr-nazi-boni-memoire</id>
-    <link href="http://www.zotero.org/styles/style-idr-nazi-boni-memoire" rel="self"/>
-    <link href="http://www.zotero.org/styles/elsevier-author-date-harvard-with-titles" rel="template"/>
-    <link href="http://www.elsevier.com/journals/biological-conservation/0006-3207/guide-for-authors#68000" rel="documentation"/>
+    <title>Style IDR Nazi BONI - Final</title>
+    <id>http://csl.mendeley.com/styles/idr-nazi-boni-final-gildas</id>
+    <link href="http://csl.mendeley.com/styles/idr-nazi-boni-final-gildas" rel="self"/>
     <author>
       <name>Gildas</name>
     </author>
     <category citation-format="author-date"/>
     <category field="generic"/>
-    <updated>2026-06-06T16:00:00+00:00</updated>
+    <updated>2026-06-06T16:05:00+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
   <macro name="container">
