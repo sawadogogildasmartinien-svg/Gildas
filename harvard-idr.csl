@@ -19,7 +19,7 @@
   <locale xml:lang="fr">
     <terms>
       <term name="and">et</term>
-      <term name="et-al" font-style="italic">et al.</term>
+      <term name="et-al">et al.</term>
       <term name="accessed">consulté le</term>
       <term name="in">Dans</term>
       <term name="page" form="short">p.</term>
@@ -60,7 +60,6 @@
             and="text"
             delimiter=", "
             initialize-with="."/>
-      <et-al font-style="italic"/>
       <substitute>
         <names variable="editor"/>
         <names variable="translator"/>
