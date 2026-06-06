@@ -1,36 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <style class="in-text" version="1.0" demote-non-dropping-particle="never" default-locale="fr-FR" xmlns="http://purl.org/net/xbiblio/csl">
   <info>
-    <title>Elsevier (author-date/Harvard, with titles) - Gildas</title>
-    <id>http://www.zotero.org/styles/elsevier-author-date-harvard-with-titles-gildas</id>
-    <link href="http://www.zotero.org/styles/elsevier-author-date-harvard-with-titles-gildas" rel="self"/>
-    <link href="http://www.zotero.org/styles/ecology-letters" rel="template"/>
+    <title>Style IDR Nazi BONI - Memoire</title>
+    <id>http://www.zotero.org/styles/style-idr-nazi-boni-memoire</id>
+    <link href="http://www.zotero.org/styles/style-idr-nazi-boni-memoire" rel="self"/>
+    <link href="http://www.zotero.org/styles/elsevier-author-date-harvard-with-titles" rel="template"/>
     <link href="http://www.elsevier.com/journals/biological-conservation/0006-3207/guide-for-authors#68000" rel="documentation"/>
     <author>
-      <name>David Kaplan</name>
-      <email>david.kaplan@ird.fr</email>
+      <name>Gildas</name>
     </author>
-    <contributor>
-      <name>Simon Kornblith</name>
-      <email>simon@simonster.com</email>
-    </contributor>
-    <contributor>
-      <name>Bruce D'Arcus</name>
-    </contributor>
-    <contributor>
-      <name>Curtis M. Humphrey</name>
-    </contributor>
-    <contributor>
-      <name>Richard Karnesky</name>
-      <email>karnesky+zotero@gmail.com</email>
-      <uri>http://arc.nucapt.northwestern.edu/Richard_Karnesky</uri>
-    </contributor>
-    <contributor>
-      <name>Sebastian Karcher</name>
-    </contributor>
     <category citation-format="author-date"/>
-    <category field="biology"/>
-    <updated>2026-06-06T15:12:21+00:00</updated>
+    <category field="generic"/>
+    <updated>2026-06-06T16:00:00+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
   <macro name="container">
@@ -54,7 +35,7 @@
       </else-if>
       <else>
         <group prefix=". " delimiter=", ">
-          <text variable="container-title" font-style="italic"/>
+          <text variable="container-title" font-style="underline"/>
           <text variable="collection-title"/>
         </group>
       </else>
@@ -92,7 +73,7 @@
   <macro name="access">
     <choose>
       <if variable="DOI">
-        <text variable="DOI" prefix="https://doi.org/" suffix=" "/>
+        <text variable="DOI" prefix="https://doi.org/"/>
       </if>
       <else-if type="webpage post-weblog" match="any">
         <group delimiter=" ">
@@ -174,7 +155,7 @@
   <macro name="locators">
     <choose>
       <if type="article-journal article-magazine article-newspaper" match="any">
-        <group delimiter=":" prefix=" ">
+        <group delimiter=": " prefix=" ">
           <group>
             <text variable="volume"/>
             <text variable="issue" prefix="(" suffix=")"/>
