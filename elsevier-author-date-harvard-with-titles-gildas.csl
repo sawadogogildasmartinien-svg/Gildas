@@ -1,17 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" demote-non-dropping-particle="never" default-locale="fr-FR">
   <info>
-    <title>Style IDR Nazi BONI - Final V4</title>
-    <id>http://www.zotero.org/styles/style-idr-nazi-boni-final-v4</id>
-    <link href="http://www.zotero.org/styles/style-idr-nazi-boni-final-v4" rel="self"/>
+    <title>Elsevier (author-date/Harvard, with titles) - Gildas</title>
+    <id>http://www.zotero.org/styles/elsevier-author-date-harvard-with-titles-gildas</id>
+    <link href="http://www.zotero.org/styles/elsevier-author-date-harvard-with-titles-gildas" rel="self"/>
     <link href="http://www.zotero.org/styles/ecology-letters" rel="template"/>
     <link href="http://www.elsevier.com/journals/biological-conservation/0006-3207/guide-for-authors#68000" rel="documentation"/>
     <author>
-      <name>Gildas</name>
+      <name>David Kaplan</name>
+      <email>david.kaplan@ird.fr</email>
     </author>
+    <contributor>
+      <name>Simon Kornblith</name>
+      <email>simon@simonster.com</email>
+    </contributor>
+    <contributor>
+      <name>Bruce D'Arcus</name>
+    </contributor>
+    <contributor>
+      <name>Curtis M. Humphrey</name>
+    </contributor>
+    <contributor>
+      <name>Richard Karnesky</name>
+      <email>karnesky+zotero@gmail.com</email>
+      <uri>http://arc.nucapt.northwestern.edu/Richard_Karnesky</uri>
+    </contributor>
+    <contributor>
+      <name>Sebastian Karcher</name>
+    </contributor>
     <category citation-format="author-date"/>
-    <category field="generic"/>
-    <updated>2026-06-06T19:10:00+00:00</updated>
+    <category field="biology"/>
+    <updated>2026-06-06T19:15:56+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
   <macro name="container">
@@ -19,7 +38,7 @@
       <if type="chapter paper-conference" match="any">
         <text term="in" prefix=", " suffix=": "/>
         <names variable="editor translator" delimiter=", " suffix=", ">
-          <name name-as-sort-order="all" and="text" sort-separator=", " initialize-with=". " delimiter=", " delimiter-precedes-last="never"/>
+          <name name-as-sort-order="all" sort-separator=", " initialize-with="." delimiter=", " delimiter-precedes-last="always"/>
           <label form="short" text-case="capitalize-first" prefix=" (" suffix=")"/>
         </names>
         <group delimiter=", ">
@@ -35,7 +54,7 @@
       </else-if>
       <else>
         <group prefix=". " delimiter=", ">
-          <text variable="container-title" font-style="underline"/>
+          <text variable="container-title" font-style="italic"/>
           <text variable="collection-title"/>
         </group>
       </else>
@@ -43,7 +62,7 @@
   </macro>
   <macro name="author">
     <names variable="author" font-weight="normal">
-      <name name-as-sort-order="all" and="text" sort-separator=", " initialize-with=". " delimiter=", " delimiter-precedes-last="never"/>
+      <name and="text" delimiter-precedes-last="never" initialize-with=". " name-as-sort-order="all" sort-separator=" "/>
       <label form="short" prefix=" (" suffix=")" text-case="capitalize-first"/>
       <substitute>
         <names variable="editor"/>
@@ -67,7 +86,6 @@
           </else>
         </choose>
       </substitute>
-      <et-al font-style="italic"/>
     </names>
   </macro>
   <macro name="access">
@@ -188,7 +206,7 @@
     <sort>
       <key macro="issued"/>
     </sort>
-    <layout prefix="(" suffix=")" delimiter="; ">
+    <layout delimiter=" ; " prefix="(" suffix=")">
       <group delimiter=", ">
         <text macro="author-short"/>
         <text macro="issued"/>
@@ -199,7 +217,7 @@
       </group>
     </layout>
   </citation>
-  <bibliography hanging-indent="false" entry-spacing="0" line-spacing="1">
+  <bibliography hanging-indent="true" entry-spacing="0" line-spacing="1">
     <sort>
       <key macro="author"/>
       <key macro="issued" sort="descending"/>
