@@ -30,7 +30,7 @@
     </contributor>
     <category citation-format="author-date"/>
     <category field="biology"/>
-    <updated>2026-06-06T19:41:46+00:00</updated>
+    <updated>2026-06-06T20:41:47+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
   <macro name="container">
@@ -112,14 +112,14 @@
   <macro name="title">
     <choose>
       <if type="report thesis" match="any">
-        <text variable="title" quotes="true"/>
+        <text variable="title" quotes="false"/>
         <group prefix=" (" suffix=")" delimiter=" ">
           <text variable="genre"/>
           <text variable="number" prefix="No. "/>
         </group>
       </if>
       <else-if type="bill book graphic legal_case legislation motion_picture report song speech" match="any">
-        <text variable="title" quotes="true"/>
+        <text variable="title" quotes="false"/>
         <text macro="edition" prefix=", "/>
       </else-if>
       <else-if type="webpage">
@@ -127,7 +127,7 @@
         <text value="WWW Document" prefix=" [" suffix="]"/>
       </else-if>
       <else>
-        <text variable="title" quotes="true"/>
+        <text variable="title" quotes="false"/>
       </else>
     </choose>
   </macro>
