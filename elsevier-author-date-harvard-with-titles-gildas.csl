@@ -30,7 +30,7 @@
     </contributor>
     <category citation-format="author-date"/>
     <category field="biology"/>
-    <updated>2026-06-06T19:15:56+00:00</updated>
+    <updated>2026-06-06T19:41:46+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
   <macro name="container">
@@ -62,7 +62,7 @@
   </macro>
   <macro name="author">
     <names variable="author" font-weight="normal">
-      <name and="text" delimiter-precedes-last="never" initialize-with=". " name-as-sort-order="all" sort-separator=" "/>
+      <name and="text" delimiter-precedes-last="never" initialize-with="." name-as-sort-order="all" sort-separator=" "/>
       <label form="short" prefix=" (" suffix=")" text-case="capitalize-first"/>
       <substitute>
         <names variable="editor"/>
@@ -217,14 +217,14 @@
       </group>
     </layout>
   </citation>
-  <bibliography hanging-indent="false" entry-spacing="0" line-spacing="1">
+  <bibliography entry-spacing="0">
     <sort>
       <key macro="author"/>
       <key macro="issued" sort="descending"/>
     </sort>
     <layout>
       <group suffix=".">
-        <text macro="author" suffix=","/>
+        <text macro="author"/>
         <text macro="issued" prefix=" (" suffix=")"/>
         <group prefix=". ">
           <text macro="title"/>
