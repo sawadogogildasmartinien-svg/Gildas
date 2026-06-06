@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<style class="in-text" version="1.0" demote-non-dropping-particle="never" default-locale="fr-FR" xmlns="http://purl.org/net/xbiblio/csl">
+<style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" demote-non-dropping-particle="never" default-locale="fr-FR">
   <info>
     <title>Elsevier (author-date/Harvard, with titles) - Gildas</title>
     <id>http://www.zotero.org/styles/elsevier-author-date-harvard-with-titles-gildas</id>
@@ -30,7 +30,7 @@
     </contributor>
     <category citation-format="author-date"/>
     <category field="biology"/>
-    <updated>2026-06-06T15:59:09+00:00</updated>
+    <updated>2026-06-06T16:31:00+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
   <macro name="container">
@@ -86,7 +86,6 @@
           </else>
         </choose>
       </substitute>
-      <et-al font-style="italic"/>
     </names>
   </macro>
   <macro name="access">
